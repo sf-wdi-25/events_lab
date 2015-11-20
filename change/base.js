@@ -1,4 +1,4 @@
-console.log("Sanity Check: JS is working!");
+prompt("Sanity Check: JS is working!");
 
 $(document).ready(function(){
 
