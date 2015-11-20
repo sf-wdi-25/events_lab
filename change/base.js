@@ -4,4 +4,8 @@ $(document).ready(function(){
 
   $("#time").text( Date.now() );
 
-})
+  $("input.add").change(function sum(event) {
+  	$("#total") = ($("input#left").input) + ($("input#right").input)
+  });
+
+});
