@@ -17,8 +17,8 @@ $(document).ready(function(){
   $(window).on("keypress", function stopWatcher(event) {
     if (startTime) {
       endTime = Date.now();
-      totalTime = (startTime - endTime);
-      $('#total-time').text( endTime + " in milliseconds" );
+      totalTime = (endTime - startTime) / 1000;
+      $('#total-time').text( totalTime + " in seconds" );
     } else {
       startTime = Date.now();
     }
@@ -26,7 +26,7 @@ $(document).ready(function(){
 });
 
 //MAYBE if there is time
-//$(window).on("keypress", function(event){
+//$(window).keypress(function(event){
 // if (event.keyCode == 32) {
 //   console.log("hello");
 // }
