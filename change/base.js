@@ -6,9 +6,8 @@ $(document).ready(function(){
 
   // sets all values to 0
   $("input").val(0);
-
-
-  $("input").on("click", function doMath(l, r){
+  
+  $("input").on("change", function doMath(l, r){
     // grabs values of inputs
     var left = $('#left').val();
     var right = $('#right').val();
