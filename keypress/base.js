@@ -16,15 +16,17 @@ $(document).on("keypress",
       console.log("startTime capture:", startTime);
     } else {
       endTime = Date.now();
-      timePassed = endTime - startTime;
+      var timePassed = endTime - startTime;
+      var mill = Math.floor(timePassed % 100);          //milliseconds in hundreths
+      var seconds = Math.floor(timePassed/1000)%60;     //timepassed/(1000ms/per-second)%60seconds-per-min)
+      var minutes = Math.floor(timePassed/1000/60)%60;  //timepassed/(1000ms/per-second/60sec-per-min/60min-per-hour)
+
+
       console.log("endTime capture:", endTime);
       console.log("timePassed:", timePassed);
-      milliseconds = timePassed % 1000;
-      seconds = (((timePassed - milliseconds)/1000) % 60);
-      minutes = (seconds - (seconds % 60));
       console.log("Minutes: ", minutes);
-      console.log("Seconds: ", seconds);
-      console.log("Milliseconds: ", milliseconds);
+      console.log("Seconds: ", seconds );
+      console.log("Milliseconds: ", mill);
 
     }
   }
