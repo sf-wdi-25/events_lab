@@ -1,39 +1,49 @@
 console.log("Sanity Check: JS is working!");
 
-// * track space click
-// * time stamp 1
-// space click
-// time stamp 2
-// timestamp 2 - timestamp 1
-// print to page
-
 $(document).ready(function(){
-/////////
-////////
+
+  var $keyClick = false;
+  var $startTime = 0;
+  var $endTime = 0;
+  var $totalTime = 0;
 
   $(window).on("keypress", function spacebarHit(event){
-    var $startTime = 0;
-    var $endTime = 0;
-    var $keyClick = false;
+    // sets startTime and registers spacebar as being hit
     if(($keyClick === false)&&(event.keyCode === 32)){
-      console.log(Date.now());
       $startTime = Date.now();
-      console.log("startTime is now: " + $startTime + $keyClick);
+        console.log("startTime is now: " + $startTime);
       $keyClick = true;
-    } else if((event.keycode === 32) && ($keyClick === true)){
+        console.log("keyClick is " + $keyClick);
+    // sets endTime and resets spacebar boolean
+      $('#total-time').text("00:00");
+    }else if($keyClick === true){
       $endTime = Date.now();
+        console.log ("endTime is now:" + $endTime);
       $keyClick = false;
-      console.log ("endTime is now:" + $endTime + $keyClick);
+        console.log ("keyClick is " + $keyClick);
+      $totalTime = ($endTime - $startTime); // computes duration between hits
+      var $convertedTime = milliToTime($totalTime);
+      $('#total-time').text($convertedTime);
     }
   });
 
-/////////
-////////
+// converts milliseconds into mm:ss format
+  function milliToTime (milliseconds) {
+    var seconds = addAZero(Math.round(milliseconds / 1000));
+    var minutes = addAZero(Math.round(seconds / 60));
+    if (seconds >= 60){
+      seconds = addAZero((seconds%60));
+    }
+    return ((minutes) + ":" + (seconds));
+  }
+
+// seconds was formatting as 00:n instead of 00:0n for times under ten seconds
+  function addAZero (sec) {
+    if (sec < 10){
+      return ("0" + sec);
+    } else {
+      return (sec);
+    }
+  }
+
 });
-
-// Date.now();
-
-// ###5. keypress
-// - **Challenge**: Stop watch. When the user hits spacebar, record their
-// "start" time. When they  hit it again, record their "end" time. Then,
-// calculate the total time, and put it on the page.
