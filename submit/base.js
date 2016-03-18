@@ -1,7 +1,4 @@
-console.log("Sanity Check: JS is working!");
+$("body").on("click", function handleClick(event){
+    event.preventDefault();
 
-$(document).ready(function(){
-
-  $("#time").text( Date.now() );
-
-})
+});
