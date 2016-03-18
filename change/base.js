@@ -8,20 +8,15 @@ $(document).ready(function(){
   $("input").val(0);
 
 
-  $("input").on("click", function doMath(left, right){
-
-    // var $left = $('#left').val();
-    // var $right = $('#right').val();
-    // var $total = $left + $right;
-//    $('#total').val('#left' + '#right');
+  $("input").on("click", function doMath(l, r){
+    // grabs values of inputs
+    var left = $('#left').val();
+    var right = $('#right').val();
+    // parses from string to integer
+    var rParsed = parseInt(right);
+    var lParsed = parseInt(left);
+    // computes total
     $('#total').val (
-      $('#left').val() + $('#right').val()
-    );
+      rParsed + lParsed);
   });
-
-  // $('article').text("Boo!")
-  // <input type="number" class="add" id="left"> +
-  // <input type="number" class="add" id="right"> =
-  // <input type="number" id="total"><br>
 });
-// set the total box to be the sum of left and right
