@@ -29,12 +29,9 @@ var counter = 0;
           startTime = Date.now();
         } else {
           endTime = Date.now();
-          console.log(endTime);
           var totalTime = endTime - startTime;
-          console.log(totalTime > 0, totalTime);
           if (totalTime > 0) {
-            $('span').text(totalTime);
-            console.log("if works!");
+            $('span').text(totalTime + ' milliseconds');
           }
         }
     }
