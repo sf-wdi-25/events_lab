@@ -2,18 +2,6 @@ console.log("Sanity Check: JS is working!");
 
 $(document).ready(function(){
 
-//code below
-/*
-
-$(window).on("keypress", function (e) {
-  if (e.keyCode === 0) {
-    e.preventDefault()
-    console.log('Space pressed at' + event.timeStamp)
-  }
-});
-
-*/
-
 
 var startTime;
 var endTime;
